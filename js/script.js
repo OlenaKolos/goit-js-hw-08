@@ -64,54 +64,8 @@ const images = [
   },
 ];
 
-// const galleryContainer = document.querySelector('.gallery');
-// const modal = document.getElementById('modal');
-// const modalContent = modal.querySelector('.modal-content');
-
-// function openModal(url, alt) {
-//   modalContent.src = url;
-//   modalContent.alt = alt;
-//   modal.style.display = 'flex';
-//   document.addEventListener('keydown', closeModalOnEscape);
-// }
-
-// function closeModal() {
-//   modal.style.display = 'none';
-//   document.removeEventListener('keydown', closeModalOnEscape);
-// }
-
-// function closeModalOnEscape(event) {
-//   if (event.key === 'Escape') {
-//     closeModal();
-//   }
-// }
-
-// images.forEach((image, index) => {
-//   const galleryItem = document.createElement('li');
-//   galleryItem.classList.add('gallery-item');
-
-//   const imgElement = document.createElement('img');
-//   imgElement.src = image.preview;
-//   imgElement.alt = image.description;
-
-//   imgElement.addEventListener('click', () => {
-//     openModal(image.original, image.description);
-//   });
-
-//   galleryItem.appendChild(imgElement);
-//   galleryContainer.appendChild(galleryItem);
-// });
-
-// modal.addEventListener('click', event => {
-//   if (event.target === modal) {
-//     closeModal();
-//   }
-// });
-
 const gallery = document.querySelector('.gallery');
-
 gallery.addEventListener('click', onClickOpenImg);
-
 const imgItems = images
   .map(
     ({ preview, original, description }) =>
@@ -130,10 +84,8 @@ const imgItems = images
   .join('');
 
 gallery.insertAdjacentHTML('beforeend', imgItems);
-
 function onClickOpenImg(event) {
   event.preventDefault();
-
   const { target } = event;
 
   if (target.nodeName !== 'IMG') {
